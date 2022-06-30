@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<script src="{{url_for('static', filename='javascriptfile.js')}}"></script>
+
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Price charged prediction for Cab Data</h1>
+
+    <form action="{{ url_for('predict')}}"method="post">
+    	<div class="numericals">
+        <input type="text" name="KM_Travelled" placeholder="KM Travelled" required="required" />
+        <input type="text" name="Cost_of_Trip" placeholder="Cost of Trip" required="required" />
+      </div>
+    
+        <label for="cars">Choose a company:</label>
+        <div class="box">
+            <select name="company" id="company" required>
+              <option value=0>Pink Cab</option>
+              <option value=1>Yellow Cab</option>
+            </select> 
+          </div>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
